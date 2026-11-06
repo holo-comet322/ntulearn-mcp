@@ -1,0 +1,26 @@
+[project]
+name = "ntulearn-mcp"
+version = "0.1.0"
+description = "MCP server + CLI for NTULearn (Blackboard Learn): courses, content, announcements, grades, and bulk material downloads"
+readme = "README.md"
+requires-python = ">=3.10"
+dependencies = [
+    "mcp>=1.2",
+    "httpx>=0.27",
+    "beautifulsoup4>=4.12",
+    "playwright>=1.44",
+    "pypdf>=4.0",
+    "python-pptx>=0.6.23",
+    "python-docx>=1.1",
+]
+
+[project.scripts]
+ntulearn-mcp = "ntulearn_mcp.server:main"
+ntulearn = "ntulearn_mcp.cli:main"
+
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[tool.hatch.build.targets.wheel]
+packages = ["src/ntulearn_mcp"]
